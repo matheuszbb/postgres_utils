@@ -1,0 +1,18 @@
+services:
+  remove_migrations_django:
+    container_name: remove_migrations_django
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./postgres_utils:/postgres_utils
+    env_file:
+      - .env      
+    command: python remove_migrations_django.py
+## ative a rede abaixo caso seja necessario
+#     networks:
+#       - web
+
+# networks:
+#   web:
+#     external: true    

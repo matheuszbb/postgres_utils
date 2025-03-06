@@ -1,0 +1,18 @@
+services:
+  dumper:
+    container_name: dumper
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./postgres_utils:/postgres_utils
+    env_file:
+      - .env      
+    command: python dumper.py
+## ative a rede abaixo caso seja necessario
+#     networks:
+#       - web
+
+# networks:
+#   web:
+#     external: true    

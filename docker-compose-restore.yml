@@ -1,0 +1,18 @@
+services:
+  restore:
+    container_name: restore
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./postgres_utils:/postgres_utils
+    env_file:
+      - .env      
+    command: python restore.py
+## ative a rede abaixo caso seja necessario
+#     networks:
+#       - web
+
+# networks:
+#   web:
+#     external: true    
